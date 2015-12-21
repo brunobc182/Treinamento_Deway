@@ -1,0 +1,22 @@
+<ion-view view-title="Eventos" hide-nav-bar="true">
+	<ion-header-bar class="bar-positive">
+	  <h1 class="title">Eventos</h1>
+	  <div class="buttons">
+	    <input type="search" ng-model="busca">
+	  </div>
+	</ion-header-bar>
+	<ion-content>
+  	<ion-list>
+  	  <ion-item ng-repeat="evento in eventos | filter: busca" 
+  	  			ui-sref="tab.eventosDetail({eventoId: evento.id})"
+  	  			can-swipe="true">
+  		<h2>{{ evento.nome }}</h2>
+
+  		<ion-option-button class="assertive-bg" 
+  							ng-click="excluir($index)">
+      		Excluir
+    	</ion-option-button>
+  	  </ion-item>
+  	</ion-list>
+  </ion-content>
+</ion-view>
